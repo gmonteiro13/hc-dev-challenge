@@ -1,15 +1,94 @@
 {
-  "store.home": { 
+  "store.home": {
     "blocks": [
-      "rich-text"
+      "rich-text",
+      "slider-layout#best-products",
+      "tab-layout",
+      "list-context.product-list"
     ]
   },
-  "rich-text": { 
-    "props": { 
+
+  "rich-text": {
+    "props": {
       "text": "VTEX Store Framework",
       "textAlignment": "CENTER",
       "textPosition": "CENTER",
       "font": "t-heading-1"
     }
+  },
+
+  "tab-layout": {
+    "children": ["tab-list", "tab-content"]
+  },
+
+  "tab-list": {
+    "children": ["tab-list.item#1"]
+  },
+
+  "tab-content": {
+    "children": ["tab-content.item#1"]
+  },
+
+  "tab-list.item#1": {
+    "props": {
+      "tabId": "majorAppliances",
+      "label": "Corinthians",
+      "defaultActiveTab": true
+    }
+  },
+ 
+  "slider-layout#best-products": {
+    "props": {
+      "itemsPerPage": {
+        "desktop": 1,
+        "tablet": 1,
+        "phone": 1
+      },
+      "infinite": true,
+      "showNavigationArrows": "desktopOnly",
+      "blockClass": "carousel"
+    },
+    "children": ["image#example", "image#example2"]
+  },
+
+  "image#example": {
+    "props": {
+      "src": "https://9to5google.com/wp-content/uploads/sites/4/2020/06/Mi-Band-5-goes-official.jpg?quality=82&strip=all&w=1000",
+      "maxWidth": 600,
+      "maxHeight": 600
+    }
+  },
+  "image#example2": {
+    "props": {
+      "src": "https://www.apple.com/v/airpods-pro/c/images/meta/og__ch3csr9zmviq_overview.png?202104270723",
+      "maxWidth": 600,
+      "maxHeight": 600
+    }
+  },
+
+  "tab-content.item#1": {
+    "children": ["list-context.product-list#corinthians"],
+    "props": {
+      "tabId": "majorAppliances"
+    }
+  },
+
+  "list-context.product-list#corinthians": {
+    "blocks": ["product-summary.shelf"],
+    "children": ["slider-layout"],
+    "props": {
+      "category": "20/22"
+    }
+  },
+  "product-summary.shelf": {
+    "children": [
+      "product-summary-add-to-list-button",
+      "product-summary-name",
+      "product-rating-inline",
+      "product-summary-space",
+      "product-summary-price",
+      "product-identifier.summary",
+      "add-to-cart-button"
+    ]
   }
 }
